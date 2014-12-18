@@ -2,6 +2,9 @@ package com.g0software.auxiliary.reflect;
 
 import java.lang.reflect.Method;
 
+/**
+ * @author hanoseok
+ */
 public class StackTraceUtil {
 	
 	public final static int ALL_LINE = Integer.MAX_VALUE;

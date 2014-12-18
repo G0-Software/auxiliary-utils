@@ -1,24 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.g0software</groupId>
+	<groupId>com.github.G0-Software</groupId>
 	<artifactId>auxiliary-utils</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<name>auxiliary-utils</name>
 
 	<description>G0 Software Auxiliary Utilities</description>
 
+
+	<parent>
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
+
 	<licenses>
 		<license>
-			<name>Apache License, Version 2.0</name>
+			<name>Lesser General Public License (LGPL) version 3.0</name>
+			<url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
+		</license>
+		<license>
+			<name>Apache Software License (ASL) version 2.0</name>
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
 		</license>
 	</licenses>
 
+	<developers>
+		<developer>
+			<name>Han O Seok</name>
+			<email>hanoseok@hanmail.net</email>
+			<roles>
+				<role>Lead Developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
 	<scm>
+		<connection>scm:git:git@github.com/G0-Software/auxiliary-utils.git</connection>
 		<url>https://github.com/G0-Software/auxiliary-utils</url>
+		<developerConnection>scm:git:git@github.com/G0-Software/auxiliary-utils.git</developerConnection>
 	</scm>
+
 
 	<dependencies>
 		<!-- JUnit -->
@@ -44,6 +78,17 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.3</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
